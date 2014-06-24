@@ -35,9 +35,7 @@ Download the latest version:
 
 ## Unit tests
 
-Master branch [![Build Status](https://secure.travis-ci.org/jumplead/MongoQB.png?branch=master)](https://travis-ci.org/jumplead/MongoQB)
-
-Develop branch [![Build Status](https://secure.travis-ci.org/jumplead/MongoQB.png?branch=develop)](https://travis-ci.org/jumplead/MongoQB)
+Master branch [![Build Status](https://travis-ci.org/Jumplead/MongoQB.svg)
 
 The library currently has 100% unit test coverage. To run the unit test suite make sure you have MongoDB installed locally and running with no authentication and on the default port - 27017.
 
@@ -100,4 +98,4 @@ $results = $qb
 	->get('collectionName');
 ```
 
-If you find any bugs please file a report in the [Issue tracker](https://github.com/jumplead/MongoQB/Issues)
+If you find any bugs please file a report in the [Issue tracker](https://github.com/jumplead/MongoQB/issues)
