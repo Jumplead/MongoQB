@@ -74,7 +74,7 @@ class QBtest extends PHPUnit_Framework_TestCase {
 
 		$_querySafety = $r->getProperty('_querySafety');
 		$_querySafety->setAccessible(true);
-		$this->assertEquals('safe', $_querySafety->getValue($qb));
+		$this->assertEquals('w', $_querySafety->getValue($qb));
 	}
 
 	/**
