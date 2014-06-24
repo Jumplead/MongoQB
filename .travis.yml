@@ -1,13 +1,16 @@
 language: php
 
+services:
+  - mongodb
+
 php:
   - 5.3
   - 5.4
-
-services: mongodb
+  - 5.5
 
 before_script:
-  - pecl install mongo
-  - echo "extension=mongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - composer self-update
+  - composer install --dev -o
 
 script: phpunit --coverage-text --configuration tests/phpunit.xml
