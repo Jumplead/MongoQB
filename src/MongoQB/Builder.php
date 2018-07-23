@@ -1299,8 +1299,19 @@ class Builder
      */
     public function command($query = array())
     {
+        // From MongoDB 3.6 we need to use cursors when doing aggregation queries
+        $query['cursor'] = ['batchSize' => 101];
+
         try {
             $execute = $this->_dbhandle->command($query);
+
+            if (isset($execute['cursor']) && !empty($execute['cursor'])) {
+                if (isset($execute['cursor']['firstBatch']) && !empty($execute['cursor']['firstBatch'])) {
+                    return [
+                        'result' => $execute['cursor']['firstBatch']
+                    ];
+                }
+            }
 
             return $execute;
         }
